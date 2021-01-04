@@ -1,3 +1,4 @@
 # Prisma Migrate lockfile v1
 
 20210104135056-initial-migration
+20210104142441-add-product
