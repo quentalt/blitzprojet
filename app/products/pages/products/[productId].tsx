@@ -7,14 +7,17 @@ import deleteProduct from "app/products/mutations/deleteProduct"
 export const Product = () => {
   const router = useRouter()
   const productId = useParam("productId", "number")
-  const [product] = useQuery(getProduct, { where: { id: productId } })
+  const [product] = useQuery(getProduct, { where: { id: productId || 1 } })
   const [deleteProductMutation] = useMutation(deleteProduct)
 
   return (
     <div>
       <h1>Product {product.id}</h1>
-      <pre>{JSON.stringify(product, null, 2)}</pre>
+     {/*<pre>{JSON.stringify(product, null, 2)}</pre>*/}
+{product.requests.map((request) => {
+return <div>{request.title}</div>
 
+})}
       <Link href={`/products/${product.id}/edit`}>
         <a>Edit</a>
       </Link>

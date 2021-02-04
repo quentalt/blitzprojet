@@ -24,5 +24,5 @@ test("renders blitz documentation link", () => {
   //  const linkElement = getByText(/Documentation/i)
   //expect(linkElement).toBeInTheDocument()
 
-  expect(true).toBe(true)
+  //expect(true).toBe(true)
 })

@@ -6,7 +6,14 @@ type GetProductInput = Pick<Prisma.FindFirstProductArgs, "where">
 export default async function getProduct({ where }: GetProductInput, ctx: Ctx) {
   ctx.session.authorize()
 
-  const product = await db.product.findFirst({ where })
+  const product = await db.product.findFirst({
+     where,
+     include:{
+      requests: true,
+
+     },
+    
+    })
 
   if (!product) throw new NotFoundError()
 

@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -51,14 +51,14 @@ model Product {
 }
 
 model Request {
-  id          Int       @default(autoincrement()) @id
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  description String?    
+
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   title String?  
+  description String?
   product    Product     @relation(fields: [productId], references: [id])
   productId Int
   user        User?     @relation(fields: [userId], references: [id])
   userId      Int?
-
 }
